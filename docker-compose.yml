@@ -19,6 +19,15 @@ services:
        networks:
             - network
 
+    database:
+        image: "postgres" # use latest official postgres version
+        container_name: pg_db
+        env_file:
+           - database.env # configure postgres
+        ports:
+           - ${POSTGRES_PORT:-5432}:5432
+#        volumes:
+#           - pg_db:/var/lib/postgresql/data
 
 networks:
   # Declare our private network.  We must declare one for the magic
