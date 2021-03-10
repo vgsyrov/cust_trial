@@ -19,15 +19,41 @@ services:
        networks:
             - network
 
-    database:
+#create DB for all services: academic-performance (ap), period-planning(pp), schedule-calendar(sc), personal-information(pi)
+    db_ap:
         image: "postgres" # use latest official postgres version
-        container_name: pg_db
+        container_name: db_ap
         env_file:
            - database.env # configure postgres
         ports:
-           - ${POSTGRES_PORT:-5432}:5432
+           - ${POSTGRES_PORT_AP:-5432}:5432
 #        volumes:
 #           - pg_db:/var/lib/postgresql/data
+
+    db_pp:
+        image: "postgres" # use latest official postgres version
+        container_name: db_pp
+        env_file:
+           - database.env # configure postgres
+        ports:
+           - ${POSTGRES_PORT_PP:-5433}:5432
+
+    db_sc:
+        image: "postgres" # use latest official postgres version
+        container_name: db_sc
+        env_file:
+           - database.env # configure postgres
+        ports:
+           - ${POSTGRES_PORT_SC:-5434}:5432
+
+    db_pi:
+        image: "postgres" # use latest official postgres version
+        container_name: db_pi
+        env_file:
+           - database.env # configure postgres
+        ports:
+           - ${POSTGRES_PORT_PI:-5435}:5432
+
 
 networks:
   # Declare our private network.  We must declare one for the magic
