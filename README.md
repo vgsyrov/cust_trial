@@ -11,3 +11,7 @@
       2. postgresql - 4
       3. Spring boot - 5
 Итого: 10
+
+
+TODO:
+     1. application.propertires - забрать номер порта и хост в настройки
