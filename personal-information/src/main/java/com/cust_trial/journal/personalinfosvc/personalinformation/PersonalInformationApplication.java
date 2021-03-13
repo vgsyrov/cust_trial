@@ -18,7 +18,7 @@ public class PersonalInformationApplication {
 
     @GetMapping("/ping")
     public String sayHello(@RequestParam(value = "value", defaultValue = "ok") String name) {
-        return String.format("return %s!", name);
+        return String.format("PI return %s!", name);
     }
 
 }
