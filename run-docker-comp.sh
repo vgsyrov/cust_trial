@@ -2,4 +2,4 @@
 
 #docker-compose rm -f
 #docker-compose pull
-docker-compose up --build
+docker-compose -f docker-compose_no_rabbit.yml up --build
