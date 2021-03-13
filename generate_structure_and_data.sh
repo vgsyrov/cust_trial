@@ -17,8 +17,7 @@ echo username:  postgres >> liquibase.properties
 echo password:  docker   >> liquibase.properties
 echo classpath: $start_dir/lib/postgresql-42.2.9.jar  >> liquibase.properties
 
-
-
-
 liquibase --overwriteOutputFile=true  --diffTypes=tables,functions,views,columns,indexes,foreignkeys,primarykeys,uniqueconstraints,data,storedprocedure,triggers,sequences --changeLogFile=./changelog/db.changelog-master.xml generateChangeLog
+
+rm liquibase.properties
 
