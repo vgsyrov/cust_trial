@@ -19,6 +19,13 @@ public class Person {
     @Column(name = "FULLNAME")
     private String fullName;
 
+    public Person() { }
+
+    public Person(String personId, String fullName) {
+        this.personId = personId;
+        this.fullName = fullName;
+    }
+
     public String getPersonId() {
         return personId;
     }
