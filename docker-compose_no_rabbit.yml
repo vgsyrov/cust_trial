@@ -4,12 +4,13 @@ services:
         container_name: personal-information_docker
         build:
             context: personal-information
+            dockerfile: ../Dockerfile
 
         image: personal-information_docker:latest
         networks:
             - network
         ports:
-            - "8080:8080"
+            - "8081:8080"
 #        depends_on:
         links:
             - db_pi

@@ -10,7 +10,7 @@ public class EventAttendanceFactController {
     @Autowired
     private EventAttendanceFactRepository eventAttendanceFactRepository;
 
-    @GetMapping("/list")
+    @GetMapping("/list_ea")
     public Iterable<EventAttendanceFact> getEventAttendanceFactList(){
         return eventAttendanceFactRepository.findAll();
     }
