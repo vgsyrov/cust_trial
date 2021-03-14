@@ -1,3 +1,4 @@
+
 create table Result (
 	lessionId varchar(36) not null,
 	personId varchar(36) not null,
