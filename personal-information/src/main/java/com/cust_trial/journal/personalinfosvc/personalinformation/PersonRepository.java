@@ -8,4 +8,5 @@ public interface PersonRepository extends CrudRepository<Person, String> {
     Person findPersonByPersonId(String id);
 
     Iterable<Person> findAll();
+
 }

@@ -22,4 +22,9 @@ public class PersonController {
     public Person findPersonById(@PathVariable String id) {
         return personRepository.findPersonByPersonId(id);
     }
+
+    @GetMapping("/findName/{id}")
+    public String findFullNameById(@PathVariable String id) {
+        return personRepository.findPersonByPersonId(id).getFullName();
+    }
 }

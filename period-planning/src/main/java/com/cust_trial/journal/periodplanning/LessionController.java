@@ -17,9 +17,14 @@ public class LessionController {
         return lessionRepository.findAll();
     }
 
-    @GetMapping("/findLession/{id}")
-    public Lession findLessionById(@PathVariable String id) {
+    @GetMapping("/findLessionL/{id}")
+    public Lession findLessionEntitById(@PathVariable String id) {
         return lessionRepository.findLessionByLessionId(id);
+    }
+
+    @GetMapping("/findLession/{id}")
+    public String findLessionById(@PathVariable String id) {
+        return lessionRepository.findLessionByLessionId(id).getLessionName();
     }
 
 
