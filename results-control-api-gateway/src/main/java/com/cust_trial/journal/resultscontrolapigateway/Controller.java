@@ -1,12 +1,18 @@
 package com.cust_trial.journal.resultscontrolapigateway;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.reactive.function.server.ServerResponse;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 @RestController
 public class Controller {
@@ -18,9 +24,13 @@ public class Controller {
     PeriodPlaningClient periodPlaningClient;
 
     @GetMapping("/ping2")
-    public List getPersonList() {
-        List l = personalInfoClient.getPersonalInfo();
-        return l;
+    public Mono<ServerResponse> getPersonList() {
+        //List<Map<String, String>> l = personalInfoClient.getPersonalInfoNB();
+        return ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body("OK", String.class);
+//        List l = personalInfoClient.getPersonalInfoNB().collectList().block();
+//        return l;
         //return String.valueOf(personalInfoClient.getPersonalInfo().size());
     }
 
