@@ -1,13 +1,12 @@
 package com.cust_trial.journal.resultscontrolapigateway;
 
-import io.reactivex.Observable;
+import com.cust_trial.journal.resultscontrolapigateway.Json.PersonJson;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
-import java.util.Map;
 
 //@FeignClient(name = "piSvc", url = "localhost:8083")
 @FeignClient(name = "${pi.service.name}", url = "${pi.service.url}")
@@ -23,6 +22,9 @@ public interface PersonalInfoClient {
     @GetMapping("/findName/{id}")
     String findFullNameById(@PathVariable String id);
 
+//    @GetMapping("/list")
+//    Observable<List<PersonJson>> getPersonalInfoNB();
+
     @GetMapping("/list")
-    Observable<List<Map<String, String>>> getPersonalInfoNB();
+    List<PersonJson> getPersonalInfoNB();
 }

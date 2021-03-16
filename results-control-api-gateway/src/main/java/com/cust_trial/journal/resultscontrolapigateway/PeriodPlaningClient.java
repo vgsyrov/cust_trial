@@ -1,5 +1,6 @@
 package com.cust_trial.journal.resultscontrolapigateway;
 
+import com.cust_trial.journal.resultscontrolapigateway.Json.LessionJson;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +12,7 @@ import java.util.List;
 public interface PeriodPlaningClient {
 
     @GetMapping("/listPartisipans")
-    List getListPartisipans();
+    List<LessionJson> getListPartisipans();
 
     @GetMapping("/findLessionByLession/{id}")
     String findPartisipansByLessionId(@PathVariable String id);
