@@ -22,11 +22,4 @@ public class LessionController {
         return lessionRepository.findLessionByLessionId(id);
     }
 
-    @GetMapping("/findLession/{id}")
-    public String findLessionById(@PathVariable String id) {
-        return lessionRepository.findLessionByLessionId(id).getLessionName();
-    }
-
-
-
 }
