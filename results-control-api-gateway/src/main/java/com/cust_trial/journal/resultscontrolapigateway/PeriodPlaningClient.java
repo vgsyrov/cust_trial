@@ -9,22 +9,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 @FeignClient(name = "${pp.service.name}", url = "${pp.service.url}")
-
 public interface PeriodPlaningClient {
 
+    //LessionController
+    @GetMapping("/findLession/{id}")
+    LessionJson findLessionById(@PathVariable String id);
+
+    @GetMapping("/listLessions")
+    List<LessionJson> getLessionList();
+
+
+    //LessionPartisipantController
     @GetMapping("/listPartisipans")
     List<LessionParticipantJson> getListPartisipans();
 
     @GetMapping("/findLessionByLession/{id}")
-    String findPartisipansByLessionId(@PathVariable String id);
+    LessionParticipantJson findPartisipansByLessionId(@PathVariable String id);
 
     @GetMapping("/findLessionByPerson/{id}")
-    List findPartisipansByPersonId(@PathVariable String id) ;
-
-    @GetMapping("/findLession/{id}")
-    String findLessionById(@PathVariable String id);
-
-    @GetMapping("/listLessions")
-    List<LessionJson> getLessionList();
+    List<LessionParticipantJson> findPartisipansByPersonId(@PathVariable String id) ;
 
 }
