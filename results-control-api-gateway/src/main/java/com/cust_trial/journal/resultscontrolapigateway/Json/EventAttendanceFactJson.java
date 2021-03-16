@@ -24,4 +24,27 @@ public class EventAttendanceFactJson {
         this.attendanceFact = attendanceFact;
     }
 
+    public String getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
+    }
+
+    public String getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(String personId) {
+        this.personId = personId;
+    }
+
+    public String getAttendanceFact() {
+        return attendanceFact;
+    }
+
+    public void setAttendanceFact(String attendanceFact) {
+        this.attendanceFact = attendanceFact;
+    }
 }

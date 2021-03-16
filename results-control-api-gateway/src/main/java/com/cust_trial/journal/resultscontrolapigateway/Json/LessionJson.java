@@ -4,26 +4,26 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class LessionJson {
-    @JsonProperty("personId")
-    private String personId;
+    @JsonProperty("lessionId")
+    private String lessionId;
 
     @JsonProperty("lessionName")
     private String lessionName;
 
     @JsonCreator
     public LessionJson(
-            @JsonProperty("personId") String personId,
+            @JsonProperty("lessionId") String lessionId,
             @JsonProperty("lessionName") String lessionName) {
-        this.personId = personId;
+        this.lessionId = lessionId;
         this.lessionName = lessionName;
     }
 
-    public String getPersonId() {
-        return personId;
+    public String getLessionId() {
+        return lessionId;
     }
 
-    public void setPersonId(String personId) {
-        this.personId = personId;
+    public void setLessionId(String lessionId) {
+        this.lessionId = lessionId;
     }
 
     public String getLessionName() {
