@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
 @RestController
-public class Controller {
+public class ApiGatewayController {
 
     @Autowired
     PersonalInfoClient personalInfoClient;
