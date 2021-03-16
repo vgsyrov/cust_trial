@@ -3,6 +3,8 @@ package com.cust_trial.journal.resultscontrolapigateway;
 import com.cust_trial.journal.resultscontrolapigateway.Json.LessionJson;
 import com.cust_trial.journal.resultscontrolapigateway.Json.LessionParticipantJson;
 import com.cust_trial.journal.resultscontrolapigateway.Json.PersonJson;
+import com.cust_trial.journal.resultscontrolapigateway.client.PeriodPlaningClient;
+import com.cust_trial.journal.resultscontrolapigateway.client.PersonalInfoClient;
 import io.reactivex.Observable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

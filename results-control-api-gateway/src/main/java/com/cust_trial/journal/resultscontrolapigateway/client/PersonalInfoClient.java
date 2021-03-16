@@ -1,4 +1,4 @@
-package com.cust_trial.journal.resultscontrolapigateway;
+package com.cust_trial.journal.resultscontrolapigateway.client;
 
 import com.cust_trial.journal.resultscontrolapigateway.Json.PersonJson;
 import org.springframework.cloud.openfeign.FeignClient;
