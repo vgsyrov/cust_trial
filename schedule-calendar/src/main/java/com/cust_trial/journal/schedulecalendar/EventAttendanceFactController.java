@@ -15,12 +15,12 @@ public class EventAttendanceFactController {
         return eventAttendanceFactRepository.findAll();
     }
 
-    @GetMapping("/findByEventId")
+    @GetMapping("/findByEventId/{id}")
     public EventAttendanceFact getById(@PathVariable String id){
         return eventAttendanceFactRepository.findEventAttendanceFactByEventId(id);
     }
 
-    @GetMapping("/listByPersonId")
+    @GetMapping("/listByPersonId/{id}")
     public Iterable<EventAttendanceFact> getListByPersonId(@PathVariable String id){
         return eventAttendanceFactRepository.findEventAttendanceFactsByPersonId(id);
     }

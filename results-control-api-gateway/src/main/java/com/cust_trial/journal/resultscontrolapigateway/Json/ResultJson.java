@@ -22,6 +22,11 @@ public class ResultJson {
     @JsonProperty("resultType")
     private String resultType;
 
+    private String lessionName;
+
+    private String personName;
+
+
     @JsonCreator
     public ResultJson(
             @JsonProperty("lessionId") String lessionId,
@@ -75,5 +80,21 @@ public class ResultJson {
 
     public void setResultType(String resultType) {
         this.resultType = resultType;
+    }
+
+    public String getLessionName() {
+        return lessionName;
+    }
+
+    public void setLessionName(String lessionName) {
+        this.lessionName = lessionName;
+    }
+
+    public String getPersonName() {
+        return personName;
+    }
+
+    public void setPersonName(String personName) {
+        this.personName = personName;
     }
 }
