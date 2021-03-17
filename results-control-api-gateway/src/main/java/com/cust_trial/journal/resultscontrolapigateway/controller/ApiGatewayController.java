@@ -1,4 +1,4 @@
-package com.cust_trial.journal.resultscontrolapigateway;
+package com.cust_trial.journal.resultscontrolapigateway.controller;
 
 import com.cust_trial.journal.resultscontrolapigateway.Json.LessionJson;
 import com.cust_trial.journal.resultscontrolapigateway.Json.LessionParticipantJson;
@@ -12,6 +12,7 @@ import io.reactivex.Observable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
@@ -30,6 +31,14 @@ public class ApiGatewayController {
 
     @Autowired
     ScheduleCalendarClient scheduleCalendarClient;
+
+    @PutMapping("/auto-attendance/{eventId}/{personId}/{attendanceFact}")
+    public void autoAttendance(@PathVariable String eventId,
+                               @PathVariable String personId,
+                               @PathVariable String attendanceFact){
+        scheduleCalendarClient.autoAttendance(eventId, personId, attendanceFact);
+    }
+
 
     @GetMapping("/eventResults/{id}")
     public Observable<List<ResultJson>> getEventResults(@PathVariable String id) {

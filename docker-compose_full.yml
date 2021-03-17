@@ -1,6 +1,24 @@
 version: "3"
 services:
-    personal-information_svc:
+    results-control-api-gateway-svc:
+        container_name: results-control-api-gateway_docker
+        build:
+            context: results-control-api-gateway
+            dockerfile: ../Dockerfile
+
+        image: personal-information_docker:latest
+        networks:
+            - network
+        ports:
+            - "8080:8080"
+#        depends_on:
+        links:
+            - personal-information-svc
+            - academic-performance-svc
+            - period-planning-svc
+            - schedule-calendar-svc
+
+    personal-information-svc:
         container_name: personal-information_docker
         build:
             context: personal-information
@@ -15,7 +33,7 @@ services:
         links:
             - db_pi
 
-    academic-performance_svc:
+    academic-performance-svc:
         container_name: academic-performance_docker
         build:
             context: academic-performance
@@ -30,7 +48,7 @@ services:
         links:
             - db_ap
 
-    period-planning_svc:
+    period-planning-svc:
         container_name: period-planning_docker
         build:
             context: period-planning
@@ -45,7 +63,7 @@ services:
         links:
             - db_pp
 
-    schedule-calendar_svc:
+    schedule-calendar-svc:
         container_name: schedule-calendar_docker
         build:
             context: schedule-calendar
@@ -61,24 +79,24 @@ services:
             - db_sc
 
 
-#    rabbitMQ:
-##       image: rabbitmq:latest
+    rabbitMQ:
+       image: rabbitmq:latest
 #       image: rabbitmq:management
-#       container_name: rabbitmq
-##       volumes:
-##            - ./docker/rabbitmq/etc/:/etc/rabbitmq/
-##            - ./docker/rabbitmq/data/:/var/lib/rabbitmq/
-##            - ./docker/rabbitmq/logs/:/var/log/rabbitmq/
-#       environment:
-#            RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
-#            RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
-#            RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
-#       ports:
-#         - "5672:5672"
-#         - "15672:15672"
-#
-#       networks:
-#           - network
+       container_name: rabbitmq
+#       volumes:
+#            - ./docker/rabbitmq/etc/:/etc/rabbitmq/
+#            - ./docker/rabbitmq/data/:/var/lib/rabbitmq/
+#            - ./docker/rabbitmq/logs/:/var/log/rabbitmq/
+       environment:
+            RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
+            RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+            RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+       ports:
+         - "5672:5672"
+         - "15672:15672"
+
+       networks:
+           - network
 
 #create DB for all services: academic-performance (ap), period-planning(pp), schedule-calendar(sc), personal-information(pi)
     db_ap:

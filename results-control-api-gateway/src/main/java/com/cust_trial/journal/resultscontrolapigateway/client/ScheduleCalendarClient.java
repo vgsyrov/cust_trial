@@ -6,6 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 
@@ -32,4 +33,9 @@ public interface ScheduleCalendarClient {
 
     @GetMapping("/listByPersonId")
     List<EventAttendanceFactJson> getListByPersonId(@PathVariable String id);
+
+    @PutMapping("/auto-attendance/{eventId}/{personId}/{attendanceFact}")
+    void autoAttendance(@PathVariable String eventId,
+                        @PathVariable String personId,
+                        @PathVariable String attendanceFact);
 }
