@@ -48,7 +48,9 @@ public class EventAttendanceFactController {
         eventAttendanceFact.setAttendanceFact(attendanceFact);
         eventAttendanceFactRepository.save(eventAttendanceFact);
 
-        template.convertAndSend(QUEUE_NAME, ""+eventId+"|"+personId+"|"+attendanceFact);
+
+
+        template.convertAndSend(QUEUE_NAME, new EventAttendanceFactMessage(eventId, personId, attendanceFact));
         System.out.println("send message to "+QUEUE_NAME);
     }
 }

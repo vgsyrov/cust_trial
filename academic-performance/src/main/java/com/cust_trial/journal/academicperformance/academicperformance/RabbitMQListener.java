@@ -10,8 +10,7 @@ public class RabbitMQListener {
 
 
     @RabbitListener(queuesToDeclare = @Queue(name = "${sc.attendance.queue.name}", durable = "true"))
-    //@RabbitListener(queuesToDeclare = @Queue(name = "queue1", durable = "true"))
-    public void processIncomingMessage(String msg){
-        System.out.println("ScheduleCalendar incoming message: " +msg);
+    public void processIncomingMessage(EventAttendanceFactMessageJson msg){
+        System.out.println("ScheduleCalendar incoming message: " + msg.toString());
     }
 }

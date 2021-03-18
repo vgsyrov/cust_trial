@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
 @RestController
+//@Tag(name="Название контроллера", description="Описание контролера")
 public class ApiGatewayController {
 
     @Autowired
