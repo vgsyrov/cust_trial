@@ -1,20 +1,24 @@
 package com.cust_trial.journal.resultscontrolapigateway;
 
-import com.fasterxml.jackson.databind.DeserializationConfig;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @EnableFeignClients
+@RestController
 public class ResultsControlApiGatewayApplication {
 
 	public static void main(String[] args) {
-//		final ObjectMapper objectMapper = new ObjectMapper();
-//		objectMapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
 		SpringApplication.run(ResultsControlApiGatewayApplication.class, args);
 	}
 
+
+	@GetMapping("/ping")
+	public String sayHello(@RequestParam(value = "value", defaultValue = "ok") String name) {
+		return String.format("API return %s!", name);
+	}
 }

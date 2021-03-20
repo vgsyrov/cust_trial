@@ -24,7 +24,7 @@ public interface PeriodPlaningClient {
     List<LessionParticipantJson> getListPartisipans();
 
     @GetMapping("/findLessionByLession/{id}")
-    LessionParticipantJson findPartisipansByLessionId(@PathVariable String id);
+    List<LessionParticipantJson> findPartisipansByLessionId(@PathVariable String id);
 
     @GetMapping("/findLessionByPerson/{id}")
     List<LessionParticipantJson> findPartisipansByPersonId(@PathVariable String id) ;

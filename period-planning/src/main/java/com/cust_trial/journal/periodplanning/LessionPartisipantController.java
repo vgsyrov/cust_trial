@@ -19,7 +19,7 @@ public class LessionPartisipantController {
 
 
     @GetMapping("/findLessionByLession/{id}")
-    public LessionParticipant findPartisipansByLessionId(@PathVariable String id) {
+    public Iterable<LessionParticipant> findPartisipansByLessionId(@PathVariable String id) {
         return lessionParticipantRepository.findLessionByLessionId(id);
     }
 

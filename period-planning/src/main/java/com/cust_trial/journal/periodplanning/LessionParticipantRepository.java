@@ -5,7 +5,7 @@ import com.cust_trial.journal.periodplanning.Entity.LessionPartisipantId;
 import org.springframework.data.repository.CrudRepository;
 
 public interface LessionParticipantRepository extends CrudRepository<LessionParticipant, LessionPartisipantId> {
-    LessionParticipant findLessionByLessionId(String id);
+    Iterable<LessionParticipant> findLessionByLessionId(String id);
 
     Iterable<LessionParticipant> findLessionByPersonId(String id);
 

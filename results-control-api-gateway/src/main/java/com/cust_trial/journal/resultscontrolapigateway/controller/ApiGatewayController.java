@@ -1,19 +1,14 @@
 package com.cust_trial.journal.resultscontrolapigateway.controller;
 
-import com.cust_trial.journal.resultscontrolapigateway.Json.LessionJson;
-import com.cust_trial.journal.resultscontrolapigateway.Json.LessionParticipantJson;
-import com.cust_trial.journal.resultscontrolapigateway.Json.PersonJson;
-import com.cust_trial.journal.resultscontrolapigateway.Json.ResultJson;
+import com.cust_trial.journal.resultscontrolapigateway.Json.*;
 import com.cust_trial.journal.resultscontrolapigateway.client.AcademicPerformanceClient;
 import com.cust_trial.journal.resultscontrolapigateway.client.PeriodPlaningClient;
 import com.cust_trial.journal.resultscontrolapigateway.client.PersonalInfoClient;
 import com.cust_trial.journal.resultscontrolapigateway.client.ScheduleCalendarClient;
 import io.reactivex.Observable;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -32,6 +27,17 @@ public class ApiGatewayController {
 
     @Autowired
     ScheduleCalendarClient scheduleCalendarClient;
+
+
+    @RequestMapping(method={RequestMethod.POST,RequestMethod.PUT},
+            path="/auto-attendance/body",
+            consumes= MediaType.APPLICATION_JSON_VALUE)
+    public void autoAttendance(@RequestBody AutoAttendanceRequestBodyJson body) {
+        scheduleCalendarClient.autoAttendance(
+                body.getEventId(),
+                body.getPersonId(),
+                body.getAttendanceFact());
+    }
 
     @PutMapping("/auto-attendance/{eventId}/{personId}/{attendanceFact}")
     public void autoAttendance(@PathVariable String eventId,

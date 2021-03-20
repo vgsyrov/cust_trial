@@ -6,7 +6,7 @@ services:
             context: results-control-api-gateway
             dockerfile: ../Dockerfile
 
-        image: personal-information_docker:latest
+        image: results-control-api-gateway_docker:latest
         networks:
             - network
         ports:
