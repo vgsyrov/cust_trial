@@ -17,5 +17,5 @@ mvn -DskipTests=true install
 cd ..
 
 cd results-control-api-gateway
-mvn -DskipTests=true install
+mvn install
 cd ..
