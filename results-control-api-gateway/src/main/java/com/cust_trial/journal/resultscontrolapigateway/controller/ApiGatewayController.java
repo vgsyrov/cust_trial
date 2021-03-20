@@ -12,8 +12,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import com.cust_trial.journal.resultscontrolapigateway.AttendanceFactMapper;
 
 import java.util.*;
+
 
 @RestController
 @Tag(name="Название контроллера", description="Описание контролера")
@@ -36,10 +38,14 @@ public class ApiGatewayController {
             path="/auto-attendance/body",
             consumes= MediaType.APPLICATION_JSON_VALUE)
     public void autoAttendance(@RequestBody AutoAttendanceRequestBodyJson body) {
-        scheduleCalendarClient.autoAttendance(
-                body.getEventId(),
-                body.getPersonId(),
-                body.getAttendanceFact());
+        String mappedAttendance = mapAttendanceFactValue(body.getAttendanceFact());
+        if(mappedAttendance != null){
+            scheduleCalendarClient.autoAttendance(
+                    body.getEventId(),
+                    body.getPersonId(),
+                    mappedAttendance
+            );
+        }
     }
 
     @ApiOperation(value = "Установка посещения студентом занятия (снятие отметки)",
@@ -48,7 +54,11 @@ public class ApiGatewayController {
     public void autoAttendance(@PathVariable @ApiParam(value = "ID события", example = "initialEvent_1") String eventId,
                                @PathVariable @ApiParam(value = "ID студента", example = "initialPersonData_1") String personId,
                                @PathVariable @ApiParam(value = "Признак посещения (П/Н)", example = "П") String attendanceFact){
-        scheduleCalendarClient.autoAttendance(eventId, personId, attendanceFact);
+
+        String mappedAttendance = mapAttendanceFactValue(attendanceFact);
+        if(mappedAttendance != null){
+            scheduleCalendarClient.autoAttendance(eventId, personId, mapAttendanceFactValue(attendanceFact));
+        }
     }
 
 
@@ -86,6 +96,10 @@ public class ApiGatewayController {
 
         return results;
 
+    }
+
+    private String mapAttendanceFactValue(String incomingAttendanceFact){
+        return AttendanceFactMapper.mapValue(incomingAttendanceFact);
     }
 
 }
