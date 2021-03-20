@@ -2,11 +2,17 @@ package com.cust_trial.journal.resultscontrolapigateway.Json;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
 
 public class ResultJson {
 
+    @ApiModelProperty(
+            value = "ID урока",
+            name = "ID урока",
+            dataType = "String",
+            example = "initialLesson_1")
     @JsonProperty("lessionId")
     private String lessionId;
 

@@ -6,6 +6,9 @@ import com.cust_trial.journal.resultscontrolapigateway.client.PeriodPlaningClien
 import com.cust_trial.journal.resultscontrolapigateway.client.PersonalInfoClient;
 import com.cust_trial.journal.resultscontrolapigateway.client.ScheduleCalendarClient;
 import io.reactivex.Observable;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-//@Tag(name="Название контроллера", description="Описание контролера")
+@Tag(name="Название контроллера", description="Описание контролера")
 public class ApiGatewayController {
 
     @Autowired
@@ -39,19 +42,23 @@ public class ApiGatewayController {
                 body.getAttendanceFact());
     }
 
+    @ApiOperation(value = "Установка посещения студентом занятия (снятие отметки)",
+            notes = "Для установки признака посещения параметр attendanceFact равным П - или Н - для прогула")
     @PutMapping("/auto-attendance/{eventId}/{personId}/{attendanceFact}")
-    public void autoAttendance(@PathVariable String eventId,
-                               @PathVariable String personId,
-                               @PathVariable String attendanceFact){
+    public void autoAttendance(@PathVariable @ApiParam(value = "ID события", example = "initialEvent_1") String eventId,
+                               @PathVariable @ApiParam(value = "ID студента", example = "initialPersonData_1") String personId,
+                               @PathVariable @ApiParam(value = "Признак посещения (П/Н)", example = "П") String attendanceFact){
         scheduleCalendarClient.autoAttendance(eventId, personId, attendanceFact);
     }
 
 
+    @ApiOperation(value = "Журнал посещений",
+            notes = "Отображение журнала посещения лекции с оценкми")
     @GetMapping("/eventResults/{id}")
-    public Observable<List<ResultJson>> getEventResults(@PathVariable String id) {
+    public Observable<List<ResultJson>> getEventResults(@PathVariable @ApiParam(value = "ID события", example = "initialEvent_1") String eventId) {
         Observable<List<PersonJson>> persons = Observable.just(personalInfoClient.getPersonalInfoNB());
         Observable<List<LessionJson>> lessions = Observable.just(periodPlaningClient.getLessionList());
-        Observable<List<ResultJson>> results = Observable.just(academicPerformanceClient.findResultByLessionId(id));
+        Observable<List<ResultJson>> results = Observable.just(academicPerformanceClient.findResultByLessionId(eventId));
 
         return Observable.zip(persons, lessions, results,
                 (List<PersonJson> personJsonList,
