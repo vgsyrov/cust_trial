@@ -7,8 +7,8 @@ import java.io.Serializable;
 
 public class EventAttendanceFactMessageJson implements Serializable {
 
-    @JsonProperty("eventId")
-    private String eventId;
+    @JsonProperty("lessonId")
+    private String lessonId;
 
     @JsonProperty("personId")
     private String personId;
@@ -18,21 +18,22 @@ public class EventAttendanceFactMessageJson implements Serializable {
 
     @JsonCreator
     public EventAttendanceFactMessageJson(
-            @JsonProperty("eventId") String eventId,
+            @JsonProperty("lessonId") String lessonId,
             @JsonProperty("personId") String personId,
             @JsonProperty("attendanceFact") String attendanceFact
     ) {
-        this.eventId = eventId;
+        this.lessonId = lessonId;
         this.personId = personId;
         this.attendanceFact = attendanceFact;
+
     }
 
-    public String getEventId() {
-        return eventId;
+    public String getLessonId() {
+        return lessonId;
     }
 
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
+    public void setLessonId(String lessonId) {
+        this.lessonId = lessonId;
     }
 
     public String getPersonId() {
@@ -54,7 +55,7 @@ public class EventAttendanceFactMessageJson implements Serializable {
     @Override
     public String toString() {
         return "EventAttendanceFactMessageJson{" +
-                "eventId='" + eventId + '\'' +
+                "lessonId='" + lessonId + '\'' +
                 ", personId='" + personId + '\'' +
                 ", attendanceFact='" + attendanceFact + '\'' +
                 '}';

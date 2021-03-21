@@ -20,7 +20,7 @@ then
 else
     #echo "parameter 3 = " $3
     #-H "Content-Type: application/json" -d '{"eventId":"7", "personId":"8", "attendanceFact":"П"}'
-    http_response=$(curl -X PUT -s -o response.txt -w "%{http_code}" -H "Content-Type: application/json" -d '{"eventId":"7", "personId":"8", "attendanceFact":"П"}'  $1)    
+    http_response=$(curl -X PUT -s -o response.txt -w "%{http_code}" -H "Content-Type: application/json" -d '{"eventId":"initialEvent_2", "personId":"initialPersonData_2", "attendanceFact":"П"}'  $1)
 fi
 
 

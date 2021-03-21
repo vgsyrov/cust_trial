@@ -7,4 +7,4 @@
 #docker rm -vf $(docker ps -a -q)
 #docker rmi -f $(docker images -a -q)
 
-docker-compose -f docker-compose_full.yml up --build #--no-color > docker.log
+docker-compose -f docker-compose_full.yml up --abort-on-container-exit --quiet-pull --build #--no-color > docker.log

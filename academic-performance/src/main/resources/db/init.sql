@@ -1,5 +1,6 @@
 
 create table Result (
+        resultId varchar(36) not null,
 	lessionId varchar(36) not null,
 	personId varchar(36) not null,
 	value text,
@@ -46,14 +47,13 @@ values ('initialLesson_2', 'initialPersonData_1');
 
 */
 
-select * from Result;
 
-insert into Result (lessionId, personId, value, createdAt, resultType) values ('initialLesson_1', 'initialPersonData_1', NULL,  timestamp '2020-01-15 09:00:00', 'AUTO_ATTENDANCE' );
-insert into Result (lessionId, personId, value, createdAt, resultType) values ('initialLesson_1', 'initialPersonData_2', NULL,  timestamp '2020-01-15 09:00:00', 'AUTO_ATTENDANCE' );
-insert into Result (lessionId, personId, value, createdAt, resultType) values ('initialLesson_1', 'initialPersonData_3', NULL,  timestamp '2020-01-15 09:00:00', 'AUTO_ATTENDANCE' );
+insert into Result (resultId, lessionId, personId, value, createdAt, resultType) values ('resultId001', 'initialLesson_1', 'initialPersonData_1', NULL,  timestamp '2020-01-15 09:00:00', 'AUTO_ATTENDANCE' );
+insert into Result (resultId, lessionId, personId, value, createdAt, resultType) values ('resultId002', 'initialLesson_1', 'initialPersonData_2', NULL,  timestamp '2020-01-15 09:00:00', 'AUTO_ATTENDANCE' );
+insert into Result (resultId, lessionId, personId, value, createdAt, resultType) values ('resultId003', 'initialLesson_1', 'initialPersonData_3', NULL,  timestamp '2020-01-15 09:00:00', 'AUTO_ATTENDANCE' );
 
-insert into Result (lessionId, personId, value, createdAt, resultType) values ('initialLesson_1', 'initialPersonData_1', 'зач.',  timestamp '2020-01-15 09:15:00', 'LESSON_WORK' );
+insert into Result (resultId, lessionId, personId, value, createdAt, resultType) values ('resultId004', 'initialLesson_1', 'initialPersonData_1', 'зач.',  timestamp '2020-01-15 09:15:00', 'LESSON_WORK' );
 
-insert into Result (lessionId, personId, value, createdAt, resultType) values ('initialLesson_2', 'initialPersonData_1', NULL,  timestamp '2020-01-16 09:00:00', 'AUTO_ATTENDANCE' );
-insert into Result (lessionId, personId, value, createdAt, resultType) values ('initialLesson_2', 'initialPersonData_1', '5',  timestamp '2020-01-25 09:15:00', 'LESSON_WORK' );
+insert into Result (resultId, lessionId, personId, value, createdAt, resultType) values ('resultId005', 'initialLesson_2', 'initialPersonData_1', NULL,  timestamp '2020-01-16 09:00:00', 'AUTO_ATTENDANCE' );
+insert into Result (resultId, lessionId, personId, value, createdAt, resultType) values ('resultId006', 'initialLesson_2', 'initialPersonData_1', '5',  timestamp '2020-01-25 09:15:00', 'LESSON_WORK' );
 

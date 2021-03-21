@@ -1,12 +1,10 @@
 package com.cust_trial.journal.schedulecalendar.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@IdClass(EventAttendanceFactId.class)
 @Table(name = "EVENTATTENDANCEFACT")
 public class EventAttendanceFact {
 
@@ -14,9 +12,11 @@ public class EventAttendanceFact {
     @Column(name = "EVENTID", nullable = false)
     private String eventId;
 
+    @Id
     @Column(name = "PERSONID", nullable = false)
     private String personId;
 
+    @Id
     @Column(name = "ATTENDANCEFACT")
     private String attendanceFact;
 

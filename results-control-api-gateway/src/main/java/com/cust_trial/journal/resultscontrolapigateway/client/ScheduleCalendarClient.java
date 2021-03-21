@@ -1,5 +1,6 @@
 package com.cust_trial.journal.resultscontrolapigateway.client;
 
+import com.cust_trial.journal.resultscontrolapigateway.Json.AutoAttendanceRequestBodyJson;
 import com.cust_trial.journal.resultscontrolapigateway.Json.EventAttendanceFactJson;
 import com.cust_trial.journal.resultscontrolapigateway.Json.EventJson;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -7,6 +8,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -34,8 +36,6 @@ public interface ScheduleCalendarClient {
     @GetMapping("/listByPersonId/{id}")
     List<EventAttendanceFactJson> getListByPersonId(@PathVariable String id);
 
-    @PutMapping("/auto-attendance/{eventId}/{personId}/{attendanceFact}")
-    void autoAttendance(@PathVariable String eventId,
-                        @PathVariable String personId,
-                        @PathVariable String attendanceFact);
+    @PutMapping("/auto-attendance")
+    void autoAttendance(@RequestBody AutoAttendanceRequestBodyJson body);
 }

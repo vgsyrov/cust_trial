@@ -4,19 +4,30 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
-@IdClass(ResultId.class)
 @Table(name = "RESULT")
 public class Result implements Serializable {
 
     public Result() {}
 
-    @javax.persistence.Id
+    public Result(String lessionId, String personId, ResultType resultType) {
+        this.lessionId = lessionId;
+        this.personId = personId;
+        this.resultType = resultType;
+        resultId = UUID.randomUUID().toString();
+        createdAt = new Date();
+    }
+
+    @Id
+    @Column(name = "RESULTID", nullable = false)
+    private String resultId;
+
     @Column(name = "LESSIONID", nullable = false)
     private String lessionId;
 
-    @javax.persistence.Id
+
     @Column(name = "PERSONID", nullable = false)
     private String personId;
 

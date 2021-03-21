@@ -1,7 +1,10 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
-    <changeSet author="oper (generated)" id="1615667801826-1">
+    <changeSet author="oper (generated)" id="1616355712839-1">
         <createTable tableName="result">
+            <column name="resultid" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
             <column name="lessionid" type="VARCHAR(36)">
                 <constraints nullable="false"/>
             </column>
@@ -13,8 +16,9 @@
             <column name="resulttype" type="VARCHAR(20)"/>
         </createTable>
     </changeSet>
-    <changeSet author="oper (generated)" id="1615667801826-2">
+    <changeSet author="oper (generated)" id="1616355712839-2">
         <insert tableName="result">
+            <column name="resultid" value="resultId001"/>
             <column name="lessionid" value="initialLesson_1"/>
             <column name="personid" value="initialPersonData_1"/>
             <column name="value"/>
@@ -22,6 +26,7 @@
             <column name="resulttype" value="AUTO_ATTENDANCE"/>
         </insert>
         <insert tableName="result">
+            <column name="resultid" value="resultId002"/>
             <column name="lessionid" value="initialLesson_1"/>
             <column name="personid" value="initialPersonData_2"/>
             <column name="value"/>
@@ -29,6 +34,7 @@
             <column name="resulttype" value="AUTO_ATTENDANCE"/>
         </insert>
         <insert tableName="result">
+            <column name="resultid" value="resultId003"/>
             <column name="lessionid" value="initialLesson_1"/>
             <column name="personid" value="initialPersonData_3"/>
             <column name="value"/>
@@ -36,6 +42,7 @@
             <column name="resulttype" value="AUTO_ATTENDANCE"/>
         </insert>
         <insert tableName="result">
+            <column name="resultid" value="resultId004"/>
             <column name="lessionid" value="initialLesson_1"/>
             <column name="personid" value="initialPersonData_1"/>
             <column name="value" value="зач."/>
@@ -43,6 +50,7 @@
             <column name="resulttype" value="LESSON_WORK"/>
         </insert>
         <insert tableName="result">
+            <column name="resultid" value="resultId005"/>
             <column name="lessionid" value="initialLesson_2"/>
             <column name="personid" value="initialPersonData_1"/>
             <column name="value"/>
@@ -50,6 +58,7 @@
             <column name="resulttype" value="AUTO_ATTENDANCE"/>
         </insert>
         <insert tableName="result">
+            <column name="resultid" value="resultId006"/>
             <column name="lessionid" value="initialLesson_2"/>
             <column name="personid" value="initialPersonData_1"/>
             <column name="value" value="5"/>

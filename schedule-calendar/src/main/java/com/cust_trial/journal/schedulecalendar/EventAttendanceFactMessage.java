@@ -4,24 +4,24 @@ import java.io.Serializable;
 
 public class EventAttendanceFactMessage implements Serializable {
 
-    public EventAttendanceFactMessage(String eventId, String personId, String attendanceFact) {
-        this.eventId = eventId;
+    public EventAttendanceFactMessage(String lessonId, String personId, String attendanceFact) {
+        this.lessonId = lessonId;
         this.personId = personId;
         this.attendanceFact = attendanceFact;
     }
 
-    private String eventId;
+    private String lessonId;
 
     private String personId;
 
     private String attendanceFact;
 
-    public String getEventId() {
-        return eventId;
+    public String getLessonId() {
+        return lessonId;
     }
 
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
+    public void setLessonId(String lessonId) {
+        this.lessonId = lessonId;
     }
 
     public String getPersonId() {

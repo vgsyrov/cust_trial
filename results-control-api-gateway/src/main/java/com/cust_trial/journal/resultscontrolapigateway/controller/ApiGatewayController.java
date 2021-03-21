@@ -37,16 +37,13 @@ public class ApiGatewayController {
     @ApiOperation(value = "Установка посещения студентом занятия (снятие отметки)",
             notes = "Для установки признака посещения параметр attendanceFact равным П - или Н - для прогула модели ResultJson")
     @RequestMapping(method={RequestMethod.POST,RequestMethod.PUT},
-            path="/auto-attendance/body",
+            path="/auto-attendance",
             consumes= MediaType.APPLICATION_JSON_VALUE)
     public void autoAttendance(@RequestBody AutoAttendanceRequestBodyJson body) {
         String mappedAttendance = mapAttendanceFactValue(body.getAttendanceFact());
         if(mappedAttendance != null){
-            scheduleCalendarClient.autoAttendance(
-                    body.getEventId(),
-                    body.getPersonId(),
-                    mappedAttendance
-            );
+            body.setAttendanceFact(mappedAttendance);
+            scheduleCalendarClient.autoAttendance(body);
         }
     }
 
@@ -59,6 +56,8 @@ public class ApiGatewayController {
         Observable<List<LessionJson>> lessions = Observable.just(periodPlaningClient.getLessionList());
         Observable<List<ResultJson>> results = Observable.just(academicPerformanceClient.findResultByLessionId(eventId));
 
+
+
         return Observable.zip(persons, lessions, results,
                 (List<PersonJson> personJsonList,
                  List<LessionJson> lessionJsonList,
@@ -68,10 +67,11 @@ public class ApiGatewayController {
     }
 
 
-
     private List<ResultJson> combineEventResults(List<PersonJson> personJsons,
                                                  List<LessionJson> lessions,
                                                  List<ResultJson> results){
+
+
         Map<String, PersonJson> personMap = new HashMap<>(personJsons.size());
         Map<String, LessionJson> lessionMap = new HashMap<>(lessions.size());
 
