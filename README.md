@@ -3,14 +3,12 @@
 
 Запуск проекта:<br/>
 
-       `start_trial.sh`
+       start_trial.sh
 
-Swagger doc UI:<br/>
+Swagger doc UI:  http://localhost:8080/swagger-ui/
 
-        http://localhost:8080/swagger-ui/<br/>
-
-Сервис выборки списка оценок и посещения:<br/>
-       http://localhost:8080/eventResults/{id}<br/>
+Сервис выборки списка оценок и посещения: http://localhost:8080/eventResults/{id}
+<br/>
 , где id - это требуемое событие.
 
 В тестовых данных возможные значния:<br/>
