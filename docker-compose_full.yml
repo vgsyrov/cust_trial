@@ -99,7 +99,7 @@ services:
 
 #create DB for all services: academic-performance (ap), period-planning(pp), schedule-calendar(sc), personal-information(pi)
     db_ap:
-        image: "postgres" # use latest official postgres version
+        image: "postgres"
         container_name: db_ap
         env_file:
            - database.env # configure postgres
@@ -110,7 +110,7 @@ services:
 
 
     db_pp:
-        image: "postgres" # use latest official postgres version
+        image: "postgres"
         container_name: db_pp
         env_file:
            - database.env # configure postgres
@@ -122,7 +122,7 @@ services:
 
 
     db_sc:
-        image: "postgres" # use latest official postgres version
+        image: "postgres"
         container_name: db_sc
         env_file:
            - database.env # configure postgres
@@ -133,7 +133,7 @@ services:
             - network
 
     db_pi:
-        image: "postgres" # use latest official postgres version
+        image: "postgres"
         container_name: db_pi
         env_file:
            - database.env # configure postgres
