@@ -1,9 +1,5 @@
 package com.cust_trial.journal.personalinfosvc.personalinformation.Entity;
 
-
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;

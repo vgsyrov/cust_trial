@@ -10,12 +10,7 @@ import java.util.Objects;
 @Table(name = "RESULT")
 public class Result implements Serializable {
 
-    ;
-
-    public Result() {
-    }
-
-
+    public Result() {}
 
     @javax.persistence.Id
     @Column(name = "LESSIONID", nullable = false)

@@ -28,10 +28,10 @@ public interface ScheduleCalendarClient {
     @GetMapping("/list_ea")
     List<EventAttendanceFactJson> getEventAttendanceFactList();
 
-    @GetMapping("/findByEventId")
+    @GetMapping("/findByEventId/{id}")
     EventAttendanceFactJson getById(@PathVariable String id);
 
-    @GetMapping("/listByPersonId")
+    @GetMapping("/listByPersonId/{id}")
     List<EventAttendanceFactJson> getListByPersonId(@PathVariable String id);
 
     @PutMapping("/auto-attendance/{eventId}/{personId}/{attendanceFact}")

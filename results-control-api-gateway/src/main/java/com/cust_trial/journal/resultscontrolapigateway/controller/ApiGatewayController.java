@@ -18,7 +18,6 @@ import java.util.*;
 
 
 @RestController
-@Tag(name="Название контроллера", description="Описание контролера")
 public class ApiGatewayController {
 
     @Autowired
@@ -34,6 +33,9 @@ public class ApiGatewayController {
     ScheduleCalendarClient scheduleCalendarClient;
 
 
+
+    @ApiOperation(value = "Установка посещения студентом занятия (снятие отметки)",
+            notes = "Для установки признака посещения параметр attendanceFact равным П - или Н - для прогула модели ResultJson")
     @RequestMapping(method={RequestMethod.POST,RequestMethod.PUT},
             path="/auto-attendance/body",
             consumes= MediaType.APPLICATION_JSON_VALUE)
@@ -45,19 +47,6 @@ public class ApiGatewayController {
                     body.getPersonId(),
                     mappedAttendance
             );
-        }
-    }
-
-    @ApiOperation(value = "Установка посещения студентом занятия (снятие отметки)",
-            notes = "Для установки признака посещения параметр attendanceFact равным П - или Н - для прогула")
-    @PutMapping("/auto-attendance/{eventId}/{personId}/{attendanceFact}")
-    public void autoAttendance(@PathVariable @ApiParam(value = "ID события", example = "initialEvent_1") String eventId,
-                               @PathVariable @ApiParam(value = "ID студента", example = "initialPersonData_1") String personId,
-                               @PathVariable @ApiParam(value = "Признак посещения (П/Н)", example = "П") String attendanceFact){
-
-        String mappedAttendance = mapAttendanceFactValue(attendanceFact);
-        if(mappedAttendance != null){
-            scheduleCalendarClient.autoAttendance(eventId, personId, mapAttendanceFactValue(attendanceFact));
         }
     }
 
