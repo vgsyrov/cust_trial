@@ -8,10 +8,6 @@ public interface EventAttendanceFactRepository extends CrudRepository<EventAtten
 
     Iterable<EventAttendanceFact> findAll();
 
-    EventAttendanceFact findEventAttendanceFactByEventId(String id);
-
-    Iterable<EventAttendanceFact> findEventAttendanceFactsByPersonId(String id);
-
     EventAttendanceFact findEventAttendanceFactByEventIdAndPersonId(String eventId, String personId);
 
 }

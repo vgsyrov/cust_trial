@@ -30,12 +30,6 @@ public interface ScheduleCalendarClient {
     @GetMapping("/list_ea")
     List<EventAttendanceFactJson> getEventAttendanceFactList();
 
-    @GetMapping("/findByEventId/{id}")
-    EventAttendanceFactJson getById(@PathVariable String id);
-
-    @GetMapping("/listByPersonId/{id}")
-    List<EventAttendanceFactJson> getListByPersonId(@PathVariable String id);
-
     @PutMapping("/auto-attendance")
     void autoAttendance(@RequestBody AutoAttendanceRequestBodyJson body);
 }

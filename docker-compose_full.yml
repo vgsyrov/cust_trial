@@ -31,6 +31,8 @@ services:
             - "8083:8080"
         depends_on:
             - db_pi
+        links:
+            - db_pi
 
     academic-performance-svc:
         container_name: academic-performance_docker
@@ -44,6 +46,9 @@ services:
         ports:
             - "8084:8080"
         depends_on:
+            - db_ap
+            - rabbitMQ
+        links:
             - db_ap
             - rabbitMQ
 
@@ -60,6 +65,8 @@ services:
             - "8085:8080"
         depends_on:
             - db_pp
+        links:
+            - db_pp
 
     schedule-calendar-svc:
         container_name: schedule-calendar_docker
@@ -73,6 +80,9 @@ services:
         ports:
             - "8086:8080"
         depends_on:
+            - db_sc
+            - rabbitMQ
+        links:
             - db_sc
             - rabbitMQ
 
