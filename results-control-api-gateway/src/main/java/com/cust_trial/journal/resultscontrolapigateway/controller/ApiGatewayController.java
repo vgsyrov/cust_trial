@@ -53,7 +53,7 @@ public class ApiGatewayController {
 
     @ApiOperation(value = "Журнал посещений",
             notes = "Отображение журнала посещения лекции с оценкми")
-    @GetMapping("/eventResults/{id}")
+    @GetMapping("/eventResults/{eventId}")
     public Observable<List<ResultJson>> getEventResults(@PathVariable @ApiParam(value = "ID события", example = "initialEvent_1") String eventId) {
         Observable<List<PersonJson>> persons = Observable.just(personalInfoClient.getPersonalInfoNB());
         Observable<List<LessionJson>> lessions = Observable.just(periodPlaningClient.getLessionList());
