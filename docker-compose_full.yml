@@ -47,10 +47,10 @@ services:
             - "8084:8080"
         depends_on:
             - db_ap
-            - rabbitMQ
+#            - rabbitMQ
         links:
             - db_ap
-            - rabbitMQ
+#            - rabbitMQ
 
     period-planning-svc:
         container_name: period-planning_docker
@@ -81,10 +81,10 @@ services:
             - "8086:8080"
         depends_on:
             - db_sc
-            - rabbitMQ
+#            - rabbitMQ
         links:
             - db_sc
-            - rabbitMQ
+#            - rabbitMQ
 
 
     rabbitMQ:
