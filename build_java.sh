@@ -5,26 +5,21 @@
 #$ docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will reuse downloaded artifacts
 
 cd academic-performance
-#mvn -DskipTests=true install
-../build_java_project_in_docker_image.sh
+docker run -it --rm --name cust-trial-subproject -v maven-repo:/root/.m2 -v "$(pwd)":/usr/src/"$(pwd)" -w /usr/src/"$(pwd)" maven:3-openjdk-11-slim mvn -DskipTests=true clean install
 cd ..
 
 cd period-planning
-#mvn -DskipTests=true install
-../build_java_project_in_docker_image.sh
+docker run -it --rm --name cust-trial-subproject -v maven-repo:/root/.m2 -v "$(pwd)":/usr/src/"$(pwd)" -w /usr/src/"$(pwd)" maven:3-openjdk-11-slim mvn -DskipTests=true clean install
 cd ..
 
 cd personal-information
-#mvn -DskipTests=true install
-../build_java_project_in_docker_image.sh
+docker run -it --rm --name cust-trial-subproject -v maven-repo:/root/.m2 -v "$(pwd)":/usr/src/"$(pwd)" -w /usr/src/"$(pwd)" maven:3-openjdk-11-slim mvn -DskipTests=true clean install
 cd ..
 
 cd schedule-calendar
-#mvn -DskipTests=true install
-../build_java_project_in_docker_image.sh
+docker run -it --rm --name cust-trial-subproject -v maven-repo:/root/.m2 -v "$(pwd)":/usr/src/"$(pwd)" -w /usr/src/"$(pwd)" maven:3-openjdk-11-slim mvn -DskipTests=true clean install
 cd ..
 
 cd results-control-api-gateway
-#mvn install
-../build_java_project_in_docker_image.sh TEST
+docker run -it --rm --name cust-trial-subproject -v maven-repo:/root/.m2 -v "$(pwd)":/usr/src/"$(pwd)" -w /usr/src/"$(pwd)" maven:3-openjdk-11-slim mvn -DskipTests=true clean install
 cd ..

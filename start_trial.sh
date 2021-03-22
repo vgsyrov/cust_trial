@@ -5,4 +5,4 @@
 #docker rmi -f $(docker images -a -q)
 
 #./build_java.sh
-./run-docker-comp.sh
+docker-compose -f docker-compose_full.yml up --quiet-pull --build #--no-color > docker.log
