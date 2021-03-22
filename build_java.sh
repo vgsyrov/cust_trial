@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker volume create --name maven-repo
+#docker volume create --name maven-repo
 # docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will download artifacts
 #$ docker run -it -v maven-repo:/root/.m2 maven mvn archetype:generate # will reuse downloaded artifacts
 

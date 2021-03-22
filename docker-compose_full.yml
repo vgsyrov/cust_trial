@@ -1,4 +1,9 @@
 version: "3"
+
+#volumes:
+#  maven-repo:
+#    /home/oper/notes/new_work/cust_trial/maven_repo/
+
 services:
     results-control-api-gateway-svc:
         container_name: results-control-api-gateway_docker
