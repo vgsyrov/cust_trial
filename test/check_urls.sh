@@ -31,12 +31,8 @@ echo checking Period planning
 
 
 echo checking schedule calendar checking
+./check_url.sh http://localhost:8086/list
 ./check_url.sh http://localhost:8086/list_ea
-./check_url.sh http://localhost:8086/findByEventId/initialEvent_1
-./check_url.sh http://localhost:8086/listByPersonId/initialPersonData_1
-#./check_url.sh http://localhost:8086/auto-attendance/initialEvent-1/initialPersonData-1/P PUT
-#-H "Content-Type: application/json" -d '{"eventId":"7", "personId":"8", "attendanceFact":"П"}'
-#./check_url.sh http://localhost:8086/auto-attendance/body PUT "\"{\"eventId\":\"7\", \"personId\":\"8\", \"attendanceFact\":\"П\"}\""
 ./check_url.sh http://localhost:8086/auto-attendance PUT BODY
 
 

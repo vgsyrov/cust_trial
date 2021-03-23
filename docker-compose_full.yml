@@ -6,6 +6,7 @@ version: "3"
 
 services:
     results-control-api-gateway-svc:
+        restart: on-failure
         container_name: results-control-api-gateway_docker
         build:
             context: results-control-api-gateway
@@ -24,6 +25,7 @@ services:
             - schedule-calendar-svc
 
     personal-information-svc:
+        restart: on-failure
         container_name: personal-information_docker
         build:
             context: personal-information
@@ -40,6 +42,7 @@ services:
             - db_pi
 
     academic-performance-svc:
+        restart: on-failure
         container_name: academic-performance_docker
         build:
             context: academic-performance
@@ -58,6 +61,7 @@ services:
 #            - rabbitMQ
 
     period-planning-svc:
+        restart: on-failure
         container_name: period-planning_docker
         build:
             context: period-planning
@@ -74,6 +78,7 @@ services:
             - db_pp
 
     schedule-calendar-svc:
+        restart: on-failure
         container_name: schedule-calendar_docker
         build:
             context: schedule-calendar
@@ -93,17 +98,19 @@ services:
 
 
     rabbitMQ:
-       image: rabbitmq:latest
-       container_name: rabbitmq
-       ports:
+        restart: on-failure
+        image: rabbitmq:latest
+        container_name: rabbitmq
+        ports:
          - "5672:5672"
          - "15672:15672"
 
-       networks:
+        networks:
            - network
 
 #create DB for all services: academic-performance (ap), period-planning(pp), schedule-calendar(sc), personal-information(pi)
     db_ap:
+        restart: on-failure
         image: "postgres"
         container_name: db_ap
         env_file:
@@ -115,6 +122,7 @@ services:
 
 
     db_pp:
+        restart: on-failure
         image: "postgres"
         container_name: db_pp
         env_file:
@@ -127,6 +135,7 @@ services:
 
 
     db_sc:
+        restart: on-failure
         image: "postgres"
         container_name: db_sc
         env_file:
@@ -138,6 +147,7 @@ services:
             - network
 
     db_pi:
+        restart: on-failure
         image: "postgres"
         container_name: db_pi
         env_file:
