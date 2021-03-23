@@ -2,11 +2,13 @@
 # Build
 #
 FROM maven:3.6.0-jdk-11-slim AS build
-COPY src /home/app/src
-COPY pom.xml /home/app
+COPY pom.xml /home/app/pom.xml
+WORKDIR /home/app
+RUN mvn dependency:resolve
 
+COPY src src
 RUN mvn -f /home/app/pom.xml -DskipTests=true -B clean package
-VOLUME maven-repo:/root/.m2
+
 
 #
 # Create container
