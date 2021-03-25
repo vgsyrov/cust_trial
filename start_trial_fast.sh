@@ -4,6 +4,9 @@
 #docker rm -vf $(docker ps -a -q)
 #docker rmi -f $(docker images -a -q)
 
+export USER=$(id -u ${USER})
+export GROUP=$(id -g ${USER})
+
 docker volume create --name maven-repo
 
 ./build_java.sh
