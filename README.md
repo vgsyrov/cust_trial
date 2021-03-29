@@ -7,12 +7,12 @@
 
 Swagger doc UI:  http://localhost:8080/swagger-ui/
 
-Сервис выборки списка оценок и посещения: http://localhost:8080/eventResults/{id}
+Сервис выборки списка оценок и посещения: http://localhost:8080/lessonResults/{id}
 <br/>
 , где id - это требуемое событие.
 
 В тестовых данных возможные значния:<br/>
-   initialEvent_1 - initialLession_2<br/>
+   initialLesson_1 - initialLesson_2<br/>
 
 
 
@@ -28,7 +28,7 @@ Swagger doc UI:  http://localhost:8080/swagger-ui/
 
    {"eventId":"initialEvent_2", "personId":"initialPersonData_2", "attendanceFact":"П"}
 
-, то на уроке initialLession_2 (Алгебра и начала анализа) появится ученик (Толстой Лев Николаевич)
+, то на уроке initialLesson_2 (Алгебра и начала анализа) появится ученик (Толстой Лев Николаевич)
 
 
 
