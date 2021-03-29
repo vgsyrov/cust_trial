@@ -12,8 +12,8 @@ Swagger doc UI:  http://localhost:8080/swagger-ui/
 , где id - это требуемое событие.
 
 В тестовых данных возможные значния:<br/>
-   initialEvent_1 - initialEvent_6<br/>
-   initialEvent_11 - initialEvent_16<br/>
+   initialEvent_1 - initialLession_2<br/>
+
 
 
 Сервис простановки автобалла: http://localhost:8080/auto-attendance/body<br/>
@@ -23,6 +23,12 @@ Swagger doc UI:  http://localhost:8080/swagger-ui/
   "eventId": "string",       - ID мероприятия http://localhost:8086/list<br/>
   "personId": "string"       - ID физического лица http://localhost:8083/list<br/>
 }<br/>
+
+Пример: если отправить PUT запрос с этими данными <br/>
+
+   {"eventId":"initialEvent_2", "personId":"initialPersonData_2", "attendanceFact":"П"}
+
+, то на уроке initialLession_2 (Алгебра и начала анализа) появится ученик (Толстой Лев Николаевич)
 
 
 
